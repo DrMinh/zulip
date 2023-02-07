@@ -18,6 +18,7 @@ export class DropdownListWidget {
         null_value = null,
         include_current_item = true,
         value,
+        render_pre_dropdown_icon,
         on_update = () => {},
     }) {
         // Initializing values
@@ -28,6 +29,7 @@ export class DropdownListWidget {
         this.null_value = null_value;
         this.include_current_item = include_current_item;
         this.initial_value = value;
+        this.render_pre_dropdown_icon = render_pre_dropdown_icon;
         this.on_update = on_update;
         this.list_widget = null;
 
@@ -223,6 +225,13 @@ export class DropdownListWidget {
         const $dropdown_toggle = $(`#${CSS.escape(this.container_id)} .dropdown-toggle`);
 
         this.setup_dropdown_widget(this.data);
+
+        if (this.render_pre_dropdown_icon) {
+            const $icon_container = $(`#${CSS.escape(this.container_id)} .pre-dropdown-icon`);
+            if ($icon_container.length) {
+                $icon_container.replaceWith(this.render_pre_dropdown_icon());
+            }
+        }
 
         $(`#${CSS.escape(this.container_id)} .dropdown-search`).on("click", (e) => {
             e.stopPropagation();

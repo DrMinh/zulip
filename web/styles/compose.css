@@ -147,13 +147,16 @@
     #compose-lock-icon,
     #compose-globe-icon {
         position: relative;
-        left: 6px;
-        top: 0.5px;
+        left: 0;
         width: 0;
     }
 
+    #compose-lock-icon {
+        top: 1px;
+    }
+
     #compose-globe-icon {
-        left: 4.5px;
+        top: 1.5px;
 
         .zulip-icon-globe {
             font-size: 12px;
@@ -795,7 +798,7 @@ a.compose_control_button.hide {
         flex-grow: 1;
 
         &.lock-padding {
-            padding-left: 3px;
+            padding-left: 15px;
         }
     }
 

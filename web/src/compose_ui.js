@@ -2,6 +2,8 @@ import autosize from "autosize";
 import $ from "jquery";
 import {insert, replace, set, wrapSelection} from "text-field-edit";
 
+import render_compose_stream_dropdown_privacy_icons from "../templates/compose_stream_dropdown_privacy_icons.hbs";
+
 import * as common from "./common";
 import * as compose from "./compose";
 import * as compose_actions from "./compose_actions";
@@ -538,6 +540,7 @@ export function initialize_compose_stream_dropdown() {
         default_text: $t({defaultMessage: "Select a stream"}),
         value: null,
         on_update: on_compose_select_stream_update,
+        render_pre_dropdown_icon: render_compose_stream_dropdown_privacy_icons,
     };
     compose_stream_widget = new DropdownListWidget(opts);
     compose_stream_widget.setup();
