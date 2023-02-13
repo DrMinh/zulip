@@ -148,7 +148,7 @@
     #compose-globe-icon {
         position: relative;
         left: 0;
-        width: 0;
+        margin-right: 5px;
     }
 
     #compose-lock-icon {
@@ -796,10 +796,6 @@ a.compose_control_button.hide {
 
     #compose_select_stream_name {
         flex-grow: 1;
-
-        &.lock-padding {
-            padding-left: 15px;
-        }
     }
 
     .dropdown-list-body .list_item a {
@@ -810,7 +806,6 @@ a.compose_control_button.hide {
         float: right;
         padding-bottom: 2px;
         padding-left: 5px;
-        padding-bottom: 2px;
         color: hsl(0, 0%, 58%);
         font-weight: lighter;
     }

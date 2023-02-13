@@ -3,21 +3,17 @@ import $ from "jquery";
 import * as stream_data from "./stream_data";
 
 function update_compose_stream_icon(stream_name) {
-    const $streamfield = $("#compose_select_stream_name");
     const $globe_icon = $("#compose-globe-icon");
     const $lock_icon = $("#compose-lock-icon");
 
     // Reset state
     $globe_icon.hide();
     $lock_icon.hide();
-    $streamfield.removeClass("lock-padding");
 
     if (stream_data.is_invite_only_by_stream_name(stream_name)) {
         $lock_icon.show();
-        $streamfield.addClass("lock-padding");
     } else if (stream_data.is_web_public_by_stream_name(stream_name)) {
         $globe_icon.show();
-        $streamfield.addClass("lock-padding");
     }
 }
 
