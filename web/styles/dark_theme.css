@@ -45,9 +45,10 @@
         border-top: 1px solid hsl(0deg 0% 100% / 20%);
     }
 
+    /* Restate this here for more selector specificity */
     .modal-bg,
     .modal__container {
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
     }
 
     .modal__close {
@@ -158,7 +159,6 @@
 
     & body,
     .app-main,
-    .header-main,
     .column-middle,
     #compose,
     .column-left .left-sidebar,
@@ -169,7 +169,7 @@
     #streams_header,
     .private_messages_container,
     .header {
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
     }
 
     #scroll-to-bottom-button-container {
@@ -343,13 +343,6 @@
         color: inherit !important;
     }
 
-    /* It's a little annoying that we need to specify the different
-       background colors for these, but this alert feature can't use a
-       transparent background without creating other problems */
-    .alert-msg {
-        background-color: hsl(212deg 28% 18%);
-    }
-
     .private-message .alert-msg {
         background-color: hsl(208deg 17% 29%);
     }
@@ -429,7 +422,7 @@
     }
 
     & select option {
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
         color: hsl(236deg 33% 90%);
     }
 
@@ -523,19 +516,29 @@
         color: hsl(236deg 33% 90% / 50%);
     }
 
+    #compose-content {
+        background-color: hsl(231deg 12% 16%);
+        border-color: hsl(0deg 0% 0% / 60%);
+    }
+
+    .compose_table .stream-selection-header-colorblock {
+        border-color: hsl(240deg 11% 5%);
+    }
+
     /* Not that .message_row (below) needs to be more contrast on dark theme */
     #compose-content,
+    .message_list .recipient_row,
+    .message_row,
+    .draft-row .draft-info-box,
     .preview_message_area {
         border-color: hsl(0deg 0% 0% / 20%);
     }
 
-    .recipient_row {
-        .message_row.unread {
-            .date_row {
-                background-color: hsl(212deg 28% 18%);
-            }
-        }
+    .preview_message_area {
+        background-color: inherit;
+    }
 
+    .recipient_row {
         .private-message.unread {
             .date_row {
                 background-color: hsl(208deg 17% 29%);
@@ -704,7 +707,6 @@
     #streamlist-toggle,
     #userlist-toggle {
         color: inherit;
-        border-color: hsl(0deg 0% 0% / 60%);
     }
 
     #streamlist-toggle-button {
@@ -721,7 +723,7 @@
     }
 
     & li.active-filter,
-    li.active-sub-filter {
+    & li.active-sub-filter {
         background-color: hsl(199deg 33% 46% / 20%);
     }
 
@@ -733,18 +735,9 @@
         }
     }
 
-    #stream_filters .narrow-filter.active-filter {
-        .topic-list .filter-topics,
-        > .bottom_left_row {
-            background-color: hsl(208deg 31% 24%);
-        }
-    }
-
     .zoom-in {
-        #topics_header,
-        .narrow-filter > .bottom_left_row,
-        #stream_filters .topic-list .filter-topics {
-            background-color: hsl(212deg 28% 18%);
+        #topics_header {
+            background-color: var(--color-background);
         }
     }
 
@@ -794,12 +787,8 @@
         }
     }
 
-    .recent_topics_container {
-        background-color: hsl(212deg 28% 18%) !important;
-    }
-
     #recent_topics_table tr {
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
 
         &:hover {
             background-color: hsl(208deg 26% 11% / 60%);
@@ -858,7 +847,7 @@
     }
 
     .table-striped tbody tr:nth-child(odd) td {
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
     }
 
     .user-groups-container .right .display-type,
@@ -1280,7 +1269,7 @@
     /* Content: */
     .hotspot.overlay .hotspot-popover .hotspot-popover-content,
     .hotspot.overlay .hotspot-popover .hotspot-popover-bottom {
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
     }
 
     .alert-zulip-logo,
@@ -1332,7 +1321,7 @@
 
     #bots_lists_navbar .active a {
         color: hsl(0deg 0% 87%);
-        background-color: hsl(212deg 28% 18%);
+        background-color: var(--color-background);
         border-color: hsl(0deg 0% 87%);
         border-bottom-color: transparent;
     }
