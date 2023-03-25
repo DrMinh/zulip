@@ -308,7 +308,7 @@ p.n-margin {
 
 #navbar-middle .column-middle-inner,
 #userlist-toggle-button,
-.header-main,
+.top_navbar_full_width,
 #message_view_header {
     background-color: var(--color-background-navbar);
 }
@@ -2156,7 +2156,7 @@ div.focused_table {
 
 nav {
     .column-left {
-        text-align: center;
+        margin-left: 15px;
 
         .nav-logo {
             display: inline-block;
