@@ -23,7 +23,7 @@ import * as common from "./common";
 import * as compose from "./compose";
 import * as compose_closed_ui from "./compose_closed_ui";
 import * as compose_pm_pill from "./compose_pm_pill";
-import * as compose_ui from "./compose_ui";
+import * as compose_recipient from "./compose_recipient";
 import * as composebox_typeahead from "./composebox_typeahead";
 import * as condense from "./condense";
 import * as copy_and_paste from "./copy_and_paste";
@@ -632,7 +632,6 @@ export function initialize_everything() {
     user_group_edit.initialize();
     stream_edit_subscribers.initialize();
     stream_data.initialize(stream_data_params);
-    compose_ui.initialize_compose_stream_dropdown();
     user_group_edit_members.initialize();
     pm_conversations.recent.initialize(pm_conversations_params);
     user_topics.initialize();
@@ -651,6 +650,7 @@ export function initialize_everything() {
     message_view_header.initialize();
     server_events.initialize();
     user_status.initialize(user_status_params);
+    compose_recipient.initialize();
     compose_pm_pill.initialize();
     search_pill_widget.initialize();
     reload.initialize();
@@ -662,6 +662,7 @@ export function initialize_everything() {
     markdown.initialize(markdown_config.get_helpers());
     linkifiers.initialize(page_params.realm_linkifiers);
     realm_playground.initialize(page_params.realm_playgrounds, generated_pygments_data);
+    compose_recipient.initialize();
     compose.initialize();
     composebox_typeahead.initialize(); // Must happen after compose.initialize()
     search.initialize();
