@@ -670,14 +670,6 @@ export function initialize() {
             return;
         }
 
-        // Don't let clicks in the compose area count as
-        // "unfocusing" our compose -- in other words, e.g.
-        // clicking "Press Enter to send" should not
-        // trigger the composebox-closing code in MAIN CLICK HANDLER.
-        // But do allow our formatting link.
-        if (!$target.is("a")) {
-            e.stopPropagation();
-        }
         // Still hide the popovers, however
         popovers.hide_all();
     }
@@ -867,6 +859,7 @@ export function initialize() {
                 $("#compose-textarea").trigger("focus");
                 return;
             } else if (
+                !$(e.target).parents("#compose").length &&
                 !window.getSelection().toString() &&
                 // Clicking any input or text area should not close
                 // the compose box; this means using the sidebar
