@@ -430,6 +430,11 @@ export const slash_commands = [
         name: "todo",
         aliases: "",
     },
+    {
+        text: $t({defaultMessage: "/get (this is my custom zulip command)"}),
+        name: "get",
+        aliases: "",
+    },
 ];
 
 export function filter_and_sort_mentions(is_silent, query, opts) {
