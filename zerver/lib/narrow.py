@@ -624,15 +624,15 @@ class NarrowBuilder:
     def _by_search_tsearch(
         self, query: Select, operand: str, maybe_negate: ConditionTransform
     ) -> Select:
-        tsquery = func.plainto_tsquery(literal("zulip.english_us_search"), literal(operand))
+        tsquery = func.plainto_tsquery(literal("zulip.english_us_search"), func.unaccent(literal(operand)))
         query = query.add_columns(
             ts_locs_array(
-                literal("zulip.english_us_search", Text), column("rendered_content", Text), tsquery
+                literal("zulip.english_us_search", Text), func.unaccent(column("rendered_content", Text)), tsquery
             ).label("content_matches"),
             # We HTML-escape the topic in PostgreSQL to avoid doing a server round-trip
             ts_locs_array(
                 literal("zulip.english_us_search", Text),
-                func.escape_html(topic_column_sa(), type_=Text),
+                func.unaccent(func.escape_html(topic_column_sa(), type_=Text)),
                 tsquery,
             ).label("topic_matches"),
         )
@@ -644,7 +644,7 @@ class NarrowBuilder:
         for term in re.findall(r'"[^"]+"|\S+', operand):
             if term[0] == '"' and term[-1] == '"':
                 term = term[1:-1]
-                term = "%" + connection.ops.prep_for_like_query(term) + "%"
+                term = "%" + connection.ops.prep_for_like_query(func.unaccent(term)) + "%"
                 cond: ClauseElement = or_(
                     column("content", Text).ilike(term), topic_column_sa().ilike(term)
                 )
