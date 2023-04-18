@@ -432,12 +432,12 @@ export const slash_commands = [
     },
     {
         text: $t({defaultMessage: "/get_outstock (Get out stock from lastData ex: /get_outstock 5 )"}),
-        name: "get",
+        name: "get_outstock",
         aliases: "",
     },
     {
         text: $t({defaultMessage: "/get_test (this is my custom zulip command)"}),
-        name: "get ",
+        name: "get_test",
         aliases: "",
     },
 ];
