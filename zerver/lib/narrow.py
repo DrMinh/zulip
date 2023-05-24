@@ -652,7 +652,7 @@ class NarrowBuilder:
 
         cond = or_(
             column("search_tsvector", postgresql.TSVECTOR).op("@@")(tsquery),
-            column("rendered_content", Text).ilike(operand)
+            column("rendered_content", Text).ilike("%" + operand + "%")
         )
         return query.where(maybe_negate(cond))
 
